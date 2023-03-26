@@ -20,10 +20,11 @@ import { BookmarkAddOutlined } from '@mui/icons-material';
 import Grid from '@mui/material/Grid';
 import React from 'react';
 
-
+import apiCall from "../tasks/services/apiCall";
 
 import MenuItem from '@mui/material/MenuItem';
 
+import queryClient from "../tasks/services/queryClient";
 
 //no-undef
 
@@ -67,6 +68,23 @@ export function Detailspage() {
     validationSchema: formSchema,
     onSubmit: (formValues) => {
       console.log(formValues);
+
+ apiCall.post('/posts', {
+  //no-undef
+        "id": 20 + Math.floor(Math.random() * 100),
+        "title": `  Post`,
+        "content": `This is the post`,
+        "author": "John Doe",
+        "createdAt": "2022-01-01T00:00:00.000Z",
+       
+    })
+      .then(res => {
+        queryClient.invalidateQueries("all-posts");
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
     },
   });
 
