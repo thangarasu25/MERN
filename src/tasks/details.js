@@ -79,7 +79,7 @@ export function Detailspage() {
        
     })
       .then(res => {
-        queryClient.invalidateQueries("all-posts");
+        // queryClient.invalidateQueries("all-posts");
       })
       .catch(err => {
         console.log(err);

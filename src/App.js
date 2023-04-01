@@ -4,8 +4,9 @@ import { Task1 } from '../src/tasks/task1';
 import { Task2 } from '../src/tasks/task2';
 import { Task3 } from '../src/tasks/task3';
 import { Home } from './tasks/home';
-
+import {ReduxSamples} from './redux/index';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import { Homepage } from '../src/tasks/home-page';
 import { Aboutpage } from '../src/tasks/about-page';
 import { Contactpage } from '../src/tasks/contactpage';
@@ -29,6 +30,7 @@ function App() {
                    <Route path="task4/about" element={<Aboutpage />} />
                    <Route path="task4/contact" element={<Contactpage />} />
                    <Route path="task4/details" element={<Detailspage />} />
+                   <Route path="redux" element={<ReduxSamples />} />
                    <Route path="task4/*" element={<div>not found</div>} />
                </Route>
           <Route path="Task3" element={<Task3 />} />
