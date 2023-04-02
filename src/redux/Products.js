@@ -5,20 +5,45 @@ import { cartActions } from "./eCommerceStore";
 
 const Products = () => {
   const [list, setList] = useState([]);
+  //no-unused-vars
   const dispatch = useDispatch()
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     apiCall.get('/products')
       .then((res) => {
         setList(res.data);
+        
       })
       .catch((err) => {
         console.log(err);
       })
   }, [])
 
+  
+  
+
+  const handleClickse = (productItem) => {
+  
+  
+
+}
+ 
   const handleClick = (productItem) => {
-    dispatch(cartActions.addToCart(productItem));
+   
+ console.log(productItem,'prod');
+
+setCount(count + 1)
+var dd = {
+  count: 1 + count,
+  description:  productItem.description,
+  id:productItem.id,
+  image:  productItem.image,
+  price:  productItem.price,
+  title: productItem.title
+}
+  dispatch(cartActions.updatdelteFromCart(dd));
+
   }
 
   return (
@@ -37,7 +62,7 @@ const Products = () => {
                 <img src={item.image} alt={item.title} />
                 <p>₹ {item.price}</p>
                 <button onClick={() => handleClick(item)}>Add to Cart</button>
-                <button>Add to Wishlist</button>
+                <button onClick={() => handleClickse(item)}>Add to Wishlist</button>
               </div>
             )
         })

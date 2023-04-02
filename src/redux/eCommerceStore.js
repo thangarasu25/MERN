@@ -22,15 +22,30 @@ const cartSlice = createSlice({
     removeFromCart: (state, action) => {
       state.splice(action.payload, 1);
     },
-    updateCart: (state, action) => {
-      state[action.payload.index] = action.payload.value;
+
+    updatdelteFromCart: (state, action) => {
+    
+      state.splice(action.payload, 1);
+      state.push(action.payload);
+    },
+    updateCart: (state, action) => {  
+      // console.log(state,action.payload.id, action)
+      state[action.payload.id] = action.payload.id;
     },
     clearCart: (state, action) => {
       state.length = 0;
     }
   }
-})
 
+  
+  
+
+
+})
+const arrSorting = (arr,val) =>{
+  console.log(arr,val)
+  return false
+}
 export const cartActions = cartSlice.actions;
 
 const commerceStore = configureStore({
