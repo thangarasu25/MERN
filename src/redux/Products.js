@@ -22,7 +22,19 @@ const Products = () => {
       })
   }, [])
 
+ 
   
+
+ const getdata=()=>{
+    apiCall.get('/products')
+    .then((res) => {
+      setList(res.data);
+      
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
   
 
   const handleClickse = (productItem) => {
@@ -36,10 +48,27 @@ const Products = () => {
 
 const fecoritechange = (item)=>
 {
-console.log(item)
-}
 
-  const handleClick = (productItem) => {
+
+var data = {
+  "description":  item.description,
+  "id":item.id,
+  "image":  item.image,
+  "price":  item.price,
+  "title": item.title,
+  "visit": !item.visit
+}
+apiCall.put(`/products/${item.id}`, data)
+.then((res) => {
+  getdata();
+  // setList(res.data);
+})
+.catch((err) => {
+  console.log(err);
+})
+
+}
+ const handleClick = (productItem) => {
    
  console.log(productItem,'prod');
 
@@ -51,6 +80,7 @@ var dd = {
   image:  productItem.image,
   price:  productItem.price,
   title: productItem.title
+
 }
   dispatch(cartActions.updatdelteFromCart(dd));
 
@@ -75,7 +105,7 @@ var dd = {
                 <p>₹ {item.price}</p>
                 <button onClick={() => handleClick(item)}>Add to Cart</button>
 
-                {item.visit ?<FavoriteIcon style={{ fill: 'red' }} onClick={() => fecoritechange(item)}/>:<FavoriteIcon style={{ fill: 'gray' }}/>}
+                {item.visit ?<FavoriteIcon style={{ fill: 'red' }} onClick={() => fecoritechange(item)}/>:<FavoriteIcon style={{ fill: 'gray' }} onClick={() => fecoritechange(item)}/>}
                 {/* <button onClick={() => handleClickse(item)}>Add to Wishlist</button> */}
               </div>
             )

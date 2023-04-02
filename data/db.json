@@ -1,38 +1,73 @@
 {
-    "posts": [{
-        "id": 1,
-        "name": "Satheesh",
-        "email": "Sat@mail.com",
-        "adderss": "South street"
-    }, {
-        "id": 2,
-        "name": "John",
-        "email": "john@mail.com",
-        "adderss": "North street"
-    }, {
-        "id": 3,
-        "name": "Robert",
-        "email": "robert@mail.com",
-        "adderss": "East street"
-    }, {
-        "id": 4,
-        "name": "Mani",
-        "email": "mani@mail.com",
-        "adderss": "West street"
-    }],
-    "comments": [{
-        "id": 1,
-        "body": "some comment",
-        "postId": 1
-    }],
-    "profile": {
-        "name": "typicode"
+  "posts": [
+    {
+      "id": 1,
+      "name": "Satheesh",
+      "email": "Sat@mail.com",
+      "adderss": "South street"
     },
-    "cart": [],
-   "products": [
-    { "id": 1, "title": "Product 1", "description": "Some random string", "price": 10, "image": "https://robohash.org/1","count":1,"visit" :false },
-    { "id": 2, "title": "Product 2", "description": "Some random string", "price": 20, "image": "https://robohash.org/2" ,"count":1 ,"visit" :true},
-    { "id": 3, "title": "Product 3", "description": "Some random string", "price": 30, "image": "https://robohash.org/3","count":1 ,"visit" :false },
-    { "id": 4, "title": "Product 4", "description": "Some random string", "price": 40, "image": "https://robohash.org/4" ,"count":1 ,"visit" :false}
+    {
+      "id": 2,
+      "name": "John",
+      "email": "john@mail.com",
+      "adderss": "North street"
+    },
+    {
+      "id": 3,
+      "name": "Robert",
+      "email": "robert@mail.com",
+      "adderss": "East street"
+    },
+    {
+      "id": 4,
+      "name": "Mani",
+      "email": "mani@mail.com",
+      "adderss": "West street"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "cart": [],
+  "products": [
+    {
+      "description": "Some random string",
+      "id": 1,
+      "image": "https://robohash.org/1",
+      "price": 10,
+      "title": "Product 1",
+      "visit": false
+    },
+    {
+      "description": "Some random string",
+      "id": 2,
+      "image": "https://robohash.org/2",
+      "price": 20,
+      "title": "Product 2",
+      "visit": false
+    },
+    {
+      "description": "Some random string",
+      "id": 3,
+      "image": "https://robohash.org/3",
+      "price": 30,
+      "title": "Product 3",
+      "visit": true
+    },
+    {
+      "description": "Some random string",
+      "id": 4,
+      "image": "https://robohash.org/4",
+      "price": 40,
+      "title": "Product 4",
+      "visit": true
+    }
   ]
 }
