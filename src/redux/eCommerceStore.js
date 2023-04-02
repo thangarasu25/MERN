@@ -17,6 +17,7 @@ const cartSlice = createSlice({
   initialState: [],
   reducers: {
     addToCart: (state, action) => {
+      arrSorting(state,action.payload)
       state.push(action.payload);
     },
     removeFromCart: (state, action) => {
@@ -24,7 +25,7 @@ const cartSlice = createSlice({
     },
 
     updatdelteFromCart: (state, action) => {
-    
+     
       state.splice(action.payload, 1);
       state.push(action.payload);
     },
@@ -44,6 +45,10 @@ const cartSlice = createSlice({
 })
 const arrSorting = (arr,val) =>{
   console.log(arr,val)
+
+  for (let i = 0; arr.length > i; i++) {
+    console.log("arrsorting")
+  }
   return false
 }
 export const cartActions = cartSlice.actions;

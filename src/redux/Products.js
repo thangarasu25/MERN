@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import apiCall from "../../src/tasks/services/apiCall";
 import { cartActions } from "./eCommerceStore";
 
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
 const Products = () => {
   const [list, setList] = useState([]);
   //no-unused-vars
@@ -29,6 +31,14 @@ const Products = () => {
 
 }
  
+
+
+
+const fecoritechange = (item)=>
+{
+console.log(item)
+}
+
   const handleClick = (productItem) => {
    
  console.log(productItem,'prod');
@@ -62,7 +72,9 @@ var dd = {
                 <img src={item.image} alt={item.title} />
                 <p>₹ {item.price}</p>
                 <button onClick={() => handleClick(item)}>Add to Cart</button>
-                <button onClick={() => handleClickse(item)}>Add to Wishlist</button>
+
+                {item.visit ?<FavoriteIcon style={{ fill: 'red' }} onClick={() => fecoritechange(item)}/>:<FavoriteIcon style={{ fill: 'gray' }}/>}
+                {/* <button onClick={() => handleClickse(item)}>Add to Wishlist</button> */}
               </div>
             )
         })
