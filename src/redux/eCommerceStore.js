@@ -22,6 +22,7 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       state.splice(action.payload, 1);
+ 
     },
 
     updatdelteFromCart: (state, action) => {
@@ -44,10 +45,10 @@ const cartSlice = createSlice({
 
 })
 const arrSorting = (arr,val) =>{
-  console.log(arr,val)
+ 
 
   for (let i = 0; arr.length > i; i++) {
-    console.log("arrsorting")
+    console.log("arrsorting" ,arr[i])
   }
   return false
 }
