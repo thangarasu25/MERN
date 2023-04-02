@@ -36,20 +36,12 @@ const Products = () => {
     })
   }
   
-
-  const handleClickse = (productItem) => {
-  
-  
-
-}
  
-
+ 
 
 
 const fecoritechange = (item)=>
 {
-
-
 var data = {
   "description":  item.description,
   "id":item.id,
