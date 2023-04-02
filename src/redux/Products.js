@@ -54,7 +54,9 @@ var dd = {
 }
   dispatch(cartActions.updatdelteFromCart(dd));
 
-  }
+}
+
+
 
   return (
     <div>
