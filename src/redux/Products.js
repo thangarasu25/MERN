@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useMemo } from "react";
 import { useDispatch } from "react-redux";
 import apiCall from "../../src/tasks/services/apiCall";
 import { cartActions } from "./eCommerceStore";
@@ -22,10 +22,11 @@ const Products = () => {
       })
   }, [])
 
- 
+  
   
 
  const getdata=()=>{
+
     apiCall.get('/products')
     .then((res) => {
       setList(res.data);
@@ -36,12 +37,15 @@ const Products = () => {
     })
   }
   
- 
+  
  
 
 
 const fecoritechange = (item)=>
 {
+
+  
+
 var data = {
   "description":  item.description,
   "id":item.id,
@@ -61,20 +65,78 @@ apiCall.put(`/products/${item.id}`, data)
 
 }
  const handleClick = (productItem) => {
-   
- console.log(productItem,'prod');
+  // getdata();
+//  console.log(productItem);
 
 setCount(count + 1)
-var dd = {
-  count: 1 + count,
-  description:  productItem.description,
-  id:productItem.id,
-  image:  productItem.image,
-  price:  productItem.price,
-  title: productItem.title
+// var dd = {
+//   count: 1 + count,
+//   description:  productItem.description,
+//   id:productItem.id,
+//   image:  productItem.image,
+//   price:  productItem.price,
+//   title: productItem.title
+
+// }
+
+apiCall.get('/Categry')
+    .then((res) => {
+      // setList(res.data);
+      // let data =res.data;   
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+
+if(productItem.key === 0)
+{
+  // debugger;
+  var dd = {
+    count:1 ,
+    description:  productItem.description,
+    id:productItem.id,
+    image:  productItem.image,
+    price:  productItem.price,
+    title: productItem.title,
+    key:1
+  }
+
+  apiCall.post(`/Categry`, dd)
+  .then((res) => {
+  console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+ 
+  
+  
 
 }
-  dispatch(cartActions.updatdelteFromCart(dd));
+
+if(productItem.key === 1){
+  var dds = {
+    count:productItem.count + count ,
+    description:  productItem.description,
+    id:productItem.id,
+    image:  productItem.image,
+    price:  productItem.price,
+    title: productItem.title,
+    key:1
+  }
+
+  apiCall.put(`/Categry/${productItem.id}`, dds)
+  .then((res) => {
+  
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+ 
+
+
+}
+  // dispatch(cartActions.updatdelteFromCart(dd));
 
 }
 

@@ -1,11 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "./eCommerceStore";
-import { useState } from "react";
-
+import { useState,useEffect } from "react";
+import apiCall from "../../src/tasks/services/apiCall";
 const CartPage = () => {
   const dispatch = useDispatch();
 const [tabledata,settabledata] =useState([])
 const [count, setCount] = useState(0);
+
+useEffect(() => {
+  apiCall.get('/Categry')
+    .then((res) => {
+      settabledata(res.data);
+      
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+}, [])
+
+
   const { totalItems, data } = useSelector(storeObj => {
     // settabledata(storeObj.cart)
 
@@ -161,7 +174,7 @@ const Increment = (item) =>
           <span>Action</span>
         </div>
         {
-          data?.map((item, index) => {
+          tabledata?.map((item, index) => {
             return (
               
               <div key={`item-${index}-${item.id}`} style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', borderBottom: '1px solid #cdcdcd', textAlign: 'center', padding: 10 }}>

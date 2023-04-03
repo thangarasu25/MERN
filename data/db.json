@@ -43,7 +43,8 @@
       "image": "https://robohash.org/1",
       "price": 10,
       "title": "Product 1",
-      "visit": false
+      "visit": true,
+      "key": 0
     },
     {
       "description": "Some random string",
@@ -51,7 +52,8 @@
       "image": "https://robohash.org/2",
       "price": 20,
       "title": "Product 2",
-      "visit": false
+      "visit": true,
+      "key": 0
     },
     {
       "description": "Some random string",
@@ -59,7 +61,8 @@
       "image": "https://robohash.org/3",
       "price": 30,
       "title": "Product 3",
-      "visit": true
+      "visit": true,
+      "key": 0
     },
     {
       "description": "Some random string",
@@ -67,7 +70,46 @@
       "image": "https://robohash.org/4",
       "price": 40,
       "title": "Product 4",
-      "visit": true
+      "visit": true,
+      "key": 0
+    }
+  ],
+  "Categry": [
+    {
+      "count": 1,
+      "description": "Some random string",
+      "id": 1,
+      "image": "https://robohash.org/1",
+      "price": 10,
+      "title": "Product 1",
+      "key": 1
+    },
+    {
+      "count": 1,
+      "description": "Some random string",
+      "id": 2,
+      "image": "https://robohash.org/2",
+      "price": 20,
+      "title": "Product 2",
+      "key": 1
+    },
+    {
+      "count": 1,
+      "description": "Some random string",
+      "id": 3,
+      "image": "https://robohash.org/3",
+      "price": 30,
+      "title": "Product 3",
+      "key": 1
+    },
+    {
+      "count": 1,
+      "description": "Some random string",
+      "id": 4,
+      "image": "https://robohash.org/4",
+      "price": 40,
+      "title": "Product 4",
+      "key": 1
     }
   ]
 }
